@@ -29,34 +29,25 @@ function animatePress(currentColour) {
 
 function nextSequnece(){
   userClickedPattern = [];
-
   level++;
   $("level-title").text("level " + level);
-
-
 
   var randomNumber = Math.floor(Math.random() * 4);
   var randomColour = buttonColours[randomNumber];
   gamePattern.push(randomColour);
 
   $("#"+randomColour).fadeIn(100).fadeOut(100).fadeIn(100);
-
   playSound(randomColour);
-
 }
 
 $(".btn").click(function() {
   var userChosenColor = $(this).attr("id");
   playSound(userChosenColor);
   userClickedPattern.push(userChosenColor);
-
   animatePress(userChosenColor);
-
   checkAnswer(userClickedPattern.length - 1);
 
 });
-
-
 
 function startOver(){
   $("#level-title").text("Press A Key to Start");
@@ -64,8 +55,6 @@ function startOver(){
   gamePattern = [];
   userClickedPattern = [];
   level = 0;
-
-
 }
 
 
@@ -77,8 +66,6 @@ function checkAnswer(currentLevel){
       setTimeout(function (){
         nextSequnece();
       }, 1000);
-
-
     }
 
   } else {
